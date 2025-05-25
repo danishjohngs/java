@@ -1,0 +1,49 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class MenuExample extends Frame {
+
+    MenuExample() {
+        // Create a MenuBar
+        MenuBar mb = new MenuBar();
+
+        // Create a Menu called "File"
+        Menu file = new Menu("File");
+
+        // Create Menu Items under "File"
+        MenuItem newItem = new MenuItem("New");
+        MenuItem openItem = new MenuItem("Open");
+        MenuItem exitItem = new MenuItem("Exit");
+
+        // Add menu items to "File"
+        file.add(newItem);
+        file.add(openItem);
+        file.add(exitItem);
+
+        // Add "File" menu to menu bar
+        mb.add(file);
+
+        // Set the menu bar to the Frame
+        setMenuBar(mb);
+
+        // Add a simple label for visual feedback
+        Label label = new Label("Menu Example Window", Label.CENTER);
+        add(label);
+
+        // Set basic frame properties
+        setSize(300, 200);
+        setTitle("Menu Bar Example");
+        setVisible(true);
+
+        // Close the window when "Exit" is clicked
+        exitItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // Close the program
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        new MenuExample(); // Create an object to run the GUI
+    }
+}
