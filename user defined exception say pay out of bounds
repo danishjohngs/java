@@ -1,0 +1,23 @@
+// Step 1: Create a custom exception class
+class PayOutOfBoundsException extends Exception {
+    public PayOutOfBoundsException(String message) {
+        super(message); // Call the parent Exception class constructor
+    }
+}
+
+// Step 2: Main class
+public class PayCheck {
+    public static void main(String[] args) {
+        int pay = 120000; // Let's say someone asked for this much
+
+        try {
+            if (pay > 100000) {
+                throw new PayOutOfBoundsException("Pay out of bounds!");
+            } else {
+                System.out.println("Pay accepted: ₹" + pay);
+            }
+        } catch (PayOutOfBoundsException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+}
