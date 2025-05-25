@@ -1,0 +1,34 @@
+public class Addition {
+
+    // Function 1: Add two integers
+    void add(int a, int b) {
+        System.out.println("Sum of integers: " + (a + b));
+    }
+
+    // Function 2: Add two floats
+    void add(float a, float b) {
+        System.out.println("Sum of floats: " + (a + b));
+    }
+
+    // Function 3: Add default integers
+    void add() {
+        int a = 5, b = 10;
+        System.out.println("Sum using default integers: " + (a + b));
+    }
+
+    // Function 4: Add default floats (this can be named differently to avoid ambiguity)
+    void addDefaultFloats() {
+        float a = 2.2f, b = 2.2f;
+        System.out.println("Sum using default floats: " + (a + b));
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Addition obj = new Addition(); // create object
+
+        obj.add(10, 20);            // Call integer addition
+        obj.add(3.5f, 4.0f);        // Call float addition
+        obj.add();                  // Call default integer addition
+        obj.addDefaultFloats();     // Call default float addition
+    }
+}
