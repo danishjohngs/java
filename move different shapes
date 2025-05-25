@@ -1,0 +1,50 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class ShapeMover extends Frame implements KeyListener {
+
+    int x = 100; // Starting x position
+    int y = 100; // Starting y position
+
+    ShapeMover() {
+        setTitle("Move Shape with Arrow Keys");
+        setSize(400, 400);
+        setVisible(true);
+        addKeyListener(this); // Registering for key events
+    }
+
+    public void paint(Graphics g) {
+        // Clear old shape
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 400, 400);
+
+        // Draw a red circle
+        g.setColor(Color.RED);
+        g.fillOval(x, y, 50, 50);  // Draw circle at (x, y)
+    }
+
+    // When a key is pressed
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+
+        // Move the circle
+        if (key == KeyEvent.VK_LEFT) {
+            x -= 10;
+        } else if (key == KeyEvent.VK_RIGHT) {
+            x += 10;
+        } else if (key == KeyEvent.VK_UP) {
+            y -= 10;
+        } else if (key == KeyEvent.VK_DOWN) {
+            y += 10;
+        }
+
+        repaint(); // Redraw the shape in new position
+    }
+
+    public void keyReleased(KeyEvent e) { }
+    public void keyTyped(KeyEvent e) { }
+
+    public static void main(String[] args) {
+        new ShapeMover();
+    }
+}
