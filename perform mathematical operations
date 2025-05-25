@@ -1,0 +1,41 @@
+// Step 1: Basic calculator class
+class Addsub {
+    int a = 20;
+    int b = 10;
+
+    void add() {
+        System.out.println("Addition: " + (a + b));
+    }
+
+    void subtract() {
+        System.out.println("Subtraction: " + (a - b));
+    }
+}
+
+// Step 2: Advanced calculator class that inherits from Addsub
+class MulDiv extends Addsub {
+
+    void multiply() {
+        System.out.println("Multiplication: " + (a * b));
+    }
+
+    void divide() {
+        if (b != 0) {
+            System.out.println("Division: " + (a / b));
+        } else {
+            System.out.println("Cannot divide by zero!");
+        }
+    }
+}
+
+// Step 3: Main class to run everything
+public class MathOperations {
+    public static void main(String[] args) {
+        MulDiv obj = new MulDiv();  // Create object of MulDiv
+
+        obj.add();        // From Addsub (inherited)
+        obj.subtract();   // From Addsub (inherited)
+        obj.multiply();   // From MulDiv
+        obj.divide();     // From MulDiv
+    }
+}
