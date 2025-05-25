@@ -1,0 +1,76 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class MouseEventsDemo extends Frame implements MouseListener, MouseMotionListener {
+    String msg = "";
+    int x = 20, y = 50;
+
+    MouseEventsDemo() {
+        addMouseListener(this);
+        addMouseMotionListener(this);
+
+        setTitle("Mouse Events Demo");
+        setSize(400, 300);
+        setVisible(true);
+    }
+
+    // MouseListener methods
+    public void mouseClicked(MouseEvent e) {
+        msg = "Mouse Clicked";
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+
+    public void mousePressed(MouseEvent e) {
+        msg = "Mouse Pressed";
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        msg = "Mouse Released";
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        msg = "Mouse Entered Window";
+        x = 20;
+        y = 50;
+        repaint();
+    }
+
+    public void mouseExited(MouseEvent e) {
+        msg = "Mouse Exited Window";
+        x = 20;
+        y = 50;
+        repaint();
+    }
+
+    // MouseMotionListener methods
+    public void mouseDragged(MouseEvent e) {
+        msg = "Mouse Dragging at (" + e.getX() + ", " + e.getY() + ")";
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+
+    public void mouseMoved(MouseEvent e) {
+        msg = "Mouse Moving at (" + e.getX() + ", " + e.getY() + ")";
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+
+    // To display messages on screen
+    public void paint(Graphics g) {
+        g.drawString(msg, x, y);
+    }
+
+    public static void main(String[] args) {
+        new MouseEventsDemo();
+    }
+}
