@@ -1,0 +1,35 @@
+class Student {
+    int rollNumber; // instance variable: different for each object
+    static String college = "OpenAI College"; // static/class variable: shared by all
+
+    // Constructor to assign roll number
+    Student(int r) {
+        rollNumber = r;
+    }
+
+    // Method to display info
+    void display() {
+        System.out.println("Roll Number: " + rollNumber + ", College: " + college);
+    }
+}
+
+public class StaticDemo {
+    public static void main(String[] args) {
+        // Create 2 students
+        Student s1 = new Student(101);
+        Student s2 = new Student(102);
+
+        // Display both students
+        s1.display();
+        s2.display();
+
+        // Change college name using one object
+        s1.college = "Cyber University";
+
+        System.out.println("\nAfter changing college name using s1:");
+
+        // Display again to see the change
+        s1.display();
+        s2.display();
+    }
+}
